@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Surat</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .kop-surat {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .kop-surat h1 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .kop-surat p {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .tempat-tanggal {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .tempat-tanggal h3 {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 5px;
+      margin-left: 30px;
+    }
+
+    .perihal {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .perihal h3 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .isi-surat {
+      text-align: justify;
+      margin-bottom: 20px;
+      margin-left: 100px;
+      margin-right: 40px
+    }
+
+    .isi-surat p {
+      font-size: 16px;
+    }
+
+    .ttd {
+      text-align: right;
+    }
+
+    .ttd h3 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .ttd p {
+      font-size: 16px;
+    }
+    
+    .panitera {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+@foreach ($surats as $surat)
+  <div class="kop-surat">
+    <h1>Komisi Informasi Provinsi Kalimantan Timur</h1>
+    <p>{{ $surat->tgl_surat_panggilan }}</p>
+  </div>
+
+  <div class="tempat-tanggal">
+    <h3>Nomor    <span class="satu">:</span> {{ $surat->no_surat_panggilan }}</h3>
+    <h3>Lampiran <span class="dua">:</span> 1 (satu) berkas</h3>
+    <h3>Perihal  <span class="tiga">:</span> Panggilan sidang ajudikasi nonlitigasi{{ $surat->panggilan_ke }}</h3>
+  </div>
+
+  <div class="perihal">
+    <h3>Kepada Yth</h3>
+    <h3>Arnayan</h3>
+    <h3>Kelurahan Sungai Kapih Kecamatan Sambutan</h3>
+    <h3>DI-TEMPAT</h3>
+  </div>
+
+  <div class="isi-surat">
+    <p>Dengan hormat,</p>
+
+
+    <p>Berdasarkan perintah Majelis Komisioner Komisi Informasi Provinsi Kalimantan Timur yang memeriksa sengketa informasi publik nomor: Nomor: 001/REG-PSI/KI-KALTIM/1/2023, Panitera Komisi Informasi Provinsi Kalimantan Timur memanggil Saudara/i untuk hadir dalam sidang ajudikasi nonlitigasi terkait sengketa informasi publik tersebut antar</p>
+
+    <p>Kelurahan Sungai Kapih Kecamatan Sambutan sebagai Termohon.</p>
+
+    <p>Hari/Tanggal : {{ $surat->tgl_panggilan }}</p>
+    <p>Pukul : {{ $surat->sekira_pukul }}</p>
+    <p>Tempat : {{ $surat->tempat }}</p>
+    <p>Alamat : {{ $surat->alamat }}</p>
+    <p>Acara : {{ $surat->agenda }}</p>
+
+    <p>Jika Saudara/i berhalangan hadir harap memberitahukan kepada Panitera Komisi Informasi Provinsi Kalimantan Timur secara tertulis paling lambat 2 (dua) hari kerja sebelum sidang ajudikasi nonlitigasi dimulai</p>
+    <p>Apabila Saudara/i memberi kuasa harap surat kuasa dibawa ke sidang ajudikasi nonlitigasi agar penerima kuasa dapat mengambil keputusan selama sidang ajudikasi nonlitigasi berlangsung</p>
+    <p>Demikian panggilan untuk menghadiri sidang ajudikasi nonlitigasi penyelesaian sengketa informasi publik dalam sengketa a quo teregister di Komisi informasi Provinsi Kalimantan Timur ini disampaikan berdasarkan pasal 24 Peraturan Komisi Informasi (Perki) Nomor 1 Tahun 2013 tentang Prosedur Penyelesaian Sengketa Informasi Publik dan pasal 15 huruf I dan pasal 16 huruf c Undang Undang Nomor 25 Tahun 2009 Tentang Pelayanan Publik</p>
+  </div>
+  
+  {{-- <div class="ttd">
+    <h3>Hormat kami,</h3>
+  </div> --}}
+  
+  <div class="panitera">
+    <p>Panitera</p>
+    <br><br><br><br>
+    <p>{{ $surat->panitera }}</p>
+  </div>
+
+  <div class="catatan">
+    <p>Catatan:</p>
+    <ol>
+      <li>Dalam hal Pemohon dan/atau kuasanya tidak hadir dalam persidangan selama 2 (dua) kali tanpa alasan yang jelas, Permohon dinyatakan gugur
+          <br><b>Pasal 30 Perki 1 Tahun 2013</b>
+      </li>
+      <br>
+      <li>Dalam hal Termohon dan/atau kuasanya tidak hadir dalam persidangan, Majelis Komisioner dapat memeriksa dan memutus sengketa tanpa kehadiran Termohon
+        <br>
+        <b>Pasal 31 Perki 1 Tahun 2013</b>
+      </li>
+      <br>
+      <li>Para pihak yang menghadiri sidang ajudikasi nonlitigasi berpakaian rapi dan sopan</li>
+      <br>
+      <li>{{ $surat->panitera_pengganti }}/Panitera Pengganti {{ $surat->no_telp_panitera }}</li>
+    </ol>
+  </div>
+
+@endforeach
+</body>
+</html>
+
